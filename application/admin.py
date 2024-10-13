@@ -21,3 +21,13 @@ class SpecialityAdmin(admin.ModelAdmin):
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ['code', 'name', 'teacher']
+
+    list_display = ['name', 'group_number', 'form_of_education', 'speciality']
+
+@admin.register(Speciality)
+class SpecialityAdmin(admin.ModelAdmin):
+    list_display = ['code', 'name']
+
+@admin.register(Subject)
+class SubjectAdmin(admin.ModelAdmin):
+    list_display = ['code', 'name', 'teacher']
