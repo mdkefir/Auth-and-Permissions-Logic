@@ -40,7 +40,7 @@ class CourseProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Diploma)
 class DiplomaAdmin(admin.ModelAdmin):
-    list_display = ['grade', 'student', 'teacher', 'plan']
+    list_display = ['grade', 'student', 'teacher', 'education_plan']
     search_fields = ['student__name', 'teacher__name']
 
 @admin.register(Education_plan)

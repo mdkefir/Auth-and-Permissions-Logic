@@ -84,7 +84,7 @@ class Diploma(models.Model): # То ли диплом, то ли оценка з
 
     student = models.ForeignKey("Student", on_delete=models.SET_NULL, null=True)
     teacher = models.ForeignKey("Teacher", on_delete=models.SET_NULL, null=True)
-    plan = models.ForeignKey("Plan", on_delete=models.SET_NULL, null=True)  
+    education_plan = models.ForeignKey("Education_plan", on_delete=models.SET_NULL, null=True)  
 
     class Meta:
         verbose_name = "Диплом?"
