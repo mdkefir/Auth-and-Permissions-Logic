@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from application.views import HelloWorldAPIView
-from application.views import GroupListView
+from application.views import GroupListView, StudentListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', HelloWorldAPIView.as_view(), name='hello_world'),
     path('groups/', GroupListView.as_view(), name='group-list'),
+    path('students/', StudentListView.as_view(), name='student-list')
 ]
