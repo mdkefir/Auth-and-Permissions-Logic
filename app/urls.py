@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views.api_views import HelloWorldAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', HelloWorldAPIView.as_view(), name='hello_world'),
 ]
