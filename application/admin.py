@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Teacher, Student, Group, Disciple, Attendance, Course_project, Diploma,
-    Education_plan, Form_control, Grade, Hours_per_semestr, Nagruzka, Practise,
+    Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise,
     Practise_type, Rating, Rating_type, Speciality
 )
 
@@ -29,7 +29,7 @@ class DiscipleAdmin(admin.ModelAdmin):
 
 @admin.register(Attendance)
 class AttendanceAdmin(admin.ModelAdmin):
-    list_display = ['date_time', 'student', 'nagruzka']
+    list_display = ['date_time', 'student', 'complexity']
     list_filter = ['date_time']
     search_fields = ['student__name']
 
@@ -63,8 +63,8 @@ class HoursPerSemesterAdmin(admin.ModelAdmin):
     list_display = ['hours', 'semester', 'plan', 'disciple']
     search_fields = ['disciple__name', 'plan__code']
 
-@admin.register(Nagruzka)
-class NagruzkaAdmin(admin.ModelAdmin):
+@admin.register(Complexity)
+class ComplexityAdmin(admin.ModelAdmin):
     list_display = ['teacher', 'group', 'form_control']
     search_fields = ['teacher__name', 'group__title']
 

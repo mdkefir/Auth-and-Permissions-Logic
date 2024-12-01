@@ -56,14 +56,14 @@ class Attendance(models.Model):
     date_time = models.DateTimeField(verbose_name="Дата и время")
 
     student = models.ForeignKey("Student", on_delete=models.SET_NULL, null=True)
-    nagruzka = models.ForeignKey("Nagruzka", on_delete=models.SET_NULL, null=True)
+    complexity = models.ForeignKey("Complexity", on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = "Посещаемость"
         verbose_name_plural = "Посещаемости"
 
     def __str__(self) -> str:
-        return f"{self.date_time} {self.student} {self.nagruzka}"
+        return f"{self.date_time} {self.student} {self.complexity}"
 
 
 class Course_project(models.Model):
@@ -143,7 +143,7 @@ class Hours_per_semestr(models.Model):
     def __str__(self) -> str:
         return f"{self.hours} {self.semester} {self.plan} {self.disciple}"
     
-class Nagruzka(models.Model):
+class Complexity(models.Model):
  
     teacher = models.ForeignKey("Teacher", on_delete=models.SET_NULL, null=True)
     group = models.ForeignKey("Group", on_delete=models.SET_NULL, null=True)
