@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from application.views import HelloWorldAPIView
-from application.views import GroupListView, StudentListView, TeacherListView
+from application.views import GroupListView, StudentListView, TeacherListView, RegisterView, LoginView, CheckPermissionsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,7 @@ urlpatterns = [
     path('groups/', GroupListView.as_view(), name='group-list'),
     path('students/', StudentListView.as_view(), name='student-list'),
     path('teachers/', TeacherListView.as_view(), name='teachers-list'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('check-permissions/', CheckPermissionsView.as_view(), name='check-permissions'),
 ]
