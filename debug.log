@@ -1,0 +1,1441 @@
+Watching for file changes with StatReloader
+"GET /teachers/ HTTP/1.1" 200 276
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"GET /admin/auth/group/ HTTP/1.1" 200 16632
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26006
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/4/change/ HTTP/1.1" 302 0
+"GET /admin/auth/group/ HTTP/1.1" 200 16837
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 276
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26015
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/4/change/ HTTP/1.1" 302 0
+"GET /admin/auth/group/ HTTP/1.1" 200 16837
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26006
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"POST /admin/auth/group/4/change/ HTTP/1.1" 302 0
+"GET /admin/auth/group/ HTTP/1.1" 200 16837
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Unauthorized: /teachers/8/
+"DELETE /teachers/8/ HTTP/1.1" 401 183
+"GET /teachers/ HTTP/1.1" 200 276
+Not Found: /teachers/8/
+"DELETE /teachers/8/ HTTP/1.1" 404 48
+"GET /teachers/ HTTP/1.1" 200 276
+"DELETE /teachers/9/ HTTP/1.1" 204 0
+"GET /teachers/ HTTP/1.1" 200 191
+"POST /register/ HTTP/1.1" 201 43
+"GET /admin/application/teacher/ HTTP/1.1" 200 18838
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /register/ HTTP/1.1" 201 43
+"GET /admin/application/teacher/ HTTP/1.1" 200 19400
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Unauthorized: /login/
+"POST /login/ HTTP/1.1" 401 31
+"POST /login/ HTTP/1.1" 200 486
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"GET /admin/auth/group/ HTTP/1.1" 200 16632
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 19400
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/11/change/ HTTP/1.1" 200 30805
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/teacher/11/change/ HTTP/1.1" 302 0
+"GET /admin/application/teacher/ HTTP/1.1" 200 19665
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 369
+"GET /admin/application/teacher/11/change/ HTTP/1.1" 200 30814
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/ HTTP/1.1" 200 16632
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 19400
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/ HTTP/1.1" 200 16632
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 19400
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /register/ HTTP/1.1" 201 43
+"GET /admin/application/teacher/ HTTP/1.1" 200 19962
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /login/ HTTP/1.1" 200 486
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"GET /admin/application/teacher/12/change/ HTTP/1.1" 200 30805
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/teacher/12/change/ HTTP/1.1" 302 0
+"GET /admin/application/teacher/ HTTP/1.1" 200 20227
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 461
+"GET /admin/auth/group/ HTTP/1.1" 200 16632
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/4/change/ HTTP/1.1" 200 26024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 19962
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/complexity/ HTTP/1.1" 200 15407
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/grade/ HTTP/1.1" 200 15377
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 19962
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /admin/application/teacher/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/application/teacher/ HTTP/1.1" 500 186159
+Internal Server Error: /admin/application/teacher/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/application/teacher/ HTTP/1.1" 500 186159
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 260, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/ HTTP/1.1" 500 185748
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 260, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/ HTTP/1.1" 500 186022
+Not Found: /api/teachers
+"GET /api/teachers HTTP/1.1" 404 3600
+"GET /teachers HTTP/1.1" 301 0
+Unauthorized: /teachers/
+"GET /teachers/ HTTP/1.1" 401 5058
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 260, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/ HTTP/1.1" 500 186022
+Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 260, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 229, in inner
+    if not self.has_permission(request):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 216, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 157, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"GET /admin/ HTTP/1.1" 500 185748
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3597
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3597
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4185
+"GET /static/admin/css/login.css HTTP/1.1" 304 0
+Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 444, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 326, in full_clean
+    self._clean_form()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 342, in _clean_form
+    cleaned_data = self.clean()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\forms.py", line 356, in clean
+    self.user_cache = authenticate(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\__init__.py", line 79, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "application_administrator" не существует
+LINE 1: ...ive", "application_administrator"."is_staff" FROM "applicati...
+                                                             ^
+
+"POST /admin/login/?next=/admin/ HTTP/1.1" 500 244633
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4371
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4371
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 16748
+"GET /admin/auth/group/ HTTP/1.1" 200 15344
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /admin/ HTTP/1.1" 200 16748
+"GET /admin/application/teacher/ HTTP/1.1" 200 15451
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/practise/ HTTP/1.1" 200 15403
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/ HTTP/1.1" 200 16631
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /admin/application/complexity/ HTTP/1.1" 200 15407
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/course_project/ HTTP/1.1" 200 15549
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/group/ HTTP/1.1" 200 15377
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/student/ HTTP/1.1" 200 15955
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/speciality/ HTTP/1.1" 200 15457
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating/ HTTP/1.1" 200 15393
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/form_control/ HTTP/1.1" 200 15466
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/education_plan/ HTTP/1.1" 200 15454
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating_type/ HTTP/1.1" 200 15448
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/practise_type/ HTTP/1.1" 200 15452
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/student/ HTTP/1.1" 200 15955
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/speciality/ HTTP/1.1" 200 15457
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 15451
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/add/ HTTP/1.1" 200 29532
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+Internal Server Error: /admin/application/teacher/add/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\admin\options.py", line 1865, in _changeform_view
+    form_validated = form.is_valid()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\forms.py", line 327, in full_clean
+    self._post_clean()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\forms\models.py", line 498, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\base.py", line 1625, in full_clean
+    self.clean()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\base_user.py", line 72, in clean
+    setattr(self, self.USERNAME_FIELD, self.normalize_username(self.get_username()))
+AttributeError: 'Teacher' object has no attribute 'USERNAME_FIELD'
+"POST /admin/application/teacher/add/ HTTP/1.1" 500 148848
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /admin/application/teacher/add/ HTTP/1.1" 302 0
+"GET /admin/application/teacher/ HTTP/1.1" 200 17114
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /admin/application/teacher/add/ HTTP/1.1" 200 15906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 16842
+"GET /admin/application/course_project/ HTTP/1.1" 200 15549
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 200 17199
+Not Found: /api/register/
+"GET /api/register/ HTTP/1.1" 404 3603
+"GET /register HTTP/1.1" 301 0
+Method Not Allowed: /register/
+"GET /register/ HTTP/1.1" 405 5551
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+"GET /login HTTP/1.1" 301 0
+Method Not Allowed: /login/
+"GET /login/ HTTP/1.1" 405 5524
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3546
+"GET /admin/ HTTP/1.1" 200 17888
+"GET /admin/ HTTP/1.1" 200 17888
+"GET /admin/application/administrator/ HTTP/1.1" 200 17325
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/administrator/1/change/ HTTP/1.1" 200 32064
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 17786
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 18031
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Watching for file changes with StatReloader
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+Method Not Allowed: /register/
+"GET /register/ HTTP/1.1" 405 5551
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 106462
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 32, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 106302
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 44, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 44, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 104102
+Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py", line 84, in post
+    user = serializer.save()
+  File "C:\Users\mykad\AppData\Local\Programs\Python\Python310\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py", line 44, in create
+    user = Administrator.objects.create_user(**validated_data)
+TypeError: AdministratorManager.create_user() missing 1 required positional argument: 'email'
+"POST /register/ HTTP/1.1" 500 106462
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 18245
+"POST /register/ HTTP/1.1" 201 5540
+"POST /login/ HTTP/1.1" 200 5968
+"GET /admin/ HTTP/1.1" 200 17888
+"GET /admin/application/administrator/ HTTP/1.1" 200 18847
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /register/ HTTP/1.1" 201 49
+"GET /admin/application/administrator/ HTTP/1.1" 200 19450
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /login/ HTTP/1.1" 200 483
+Unauthorized: /teachers/
+"GET /teachers/ HTTP/1.1" 401 183
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31970
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31978
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31986
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 103
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 19450
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31978
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31970
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Unauthorized: /teachers/
+"GET /teachers/ HTTP/1.1" 401 52
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31962
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mykad\OneDrive\Desktop\project-django\IRNTU-Dashboard_django_backend\application\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/application/administrator/ HTTP/1.1" 200 19450
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Forbidden: /teachers/
+"GET /teachers/ HTTP/1.1" 403 63
+"GET /admin/application/administrator/3/change/ HTTP/1.1" 200 31970
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/administrator/3/change/ HTTP/1.1" 302 0
+"GET /admin/application/administrator/ HTTP/1.1" 200 19693
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /teachers/ HTTP/1.1" 200 74
+"GET /admin/application/teacher/ HTTP/1.1" 200 17336
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/add/ HTTP/1.1" 200 16400
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/teacher/add/ HTTP/1.1" 302 0
+"GET /admin/application/teacher/ HTTP/1.1" 200 17956
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/course_project/ HTTP/1.1" 200 16043
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/disciple/ HTTP/1.1" 200 15917
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/complexity/ HTTP/1.1" 200 15901
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/course_project/ HTTP/1.1" 200 16043
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/ HTTP/1.1" 200 17125
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/add/ HTTP/1.1" 200 20804
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/student/ HTTP/1.1" 200 16449
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/student/add/ HTTP/1.1" 200 23108
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/student/add/ HTTP/1.1" 200 23623
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 5096
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 379
+"GET /static/admin/js/popup_response.js HTTP/1.1" 200 532
+"GET /admin/application/rating/add/?_to_field=id&_popup=1 HTTP/1.1" 200 7192
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating_type/add/?_to_field=id&_popup=1 HTTP/1.1" 200 4462
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/rating_type/add/?_to_field=id&_popup=1 HTTP/1.1" 200 323
+"POST /admin/application/rating/add/?_to_field=id&_popup=1 HTTP/1.1" 200 329
+"POST /admin/application/student/add/ HTTP/1.1" 302 0
+"GET /admin/application/student/ HTTP/1.1" 200 20011
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/ HTTP/1.1" 200 17125
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/add/ HTTP/1.1" 200 20950
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/complexity/add/?_to_field=id&_popup=1 HTTP/1.1" 200 10285
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/ HTTP/1.1" 200 17125
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/group/ HTTP/1.1" 200 17395
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/group/ HTTP/1.1" 200 15622
+"POST /admin/application/group/ HTTP/1.1" 302 0
+"GET /admin/application/group/ HTTP/1.1" 200 16013
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/disciple/ HTTP/1.1" 200 15917
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/course_project/ HTTP/1.1" 200 16043
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/complexity/ HTTP/1.1" 200 15901
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/grade/ HTTP/1.1" 200 15871
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/hours_per_semestr/ HTTP/1.1" 200 15895
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/attendance/ HTTP/1.1" 200 17125
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/practise/ HTTP/1.1" 200 15897
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/teacher/ HTTP/1.1" 200 17688
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating/ HTTP/1.1" 200 17555
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/speciality/ HTTP/1.1" 200 15951
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating/ HTTP/1.1" 200 17555
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/rating/ HTTP/1.1" 200 15619
+"POST /admin/application/rating/ HTTP/1.1" 302 0
+"GET /admin/application/rating/ HTTP/1.1" 200 16031
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/student/ HTTP/1.1" 200 19024
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/practise_type/ HTTP/1.1" 200 15946
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/rating_type/ HTTP/1.1" 200 17244
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/application/rating_type/ HTTP/1.1" 200 15664
+"POST /admin/application/rating_type/ HTTP/1.1" 302 0
+"GET /admin/application/rating_type/ HTTP/1.1" 200 16095
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/education_plan/ HTTP/1.1" 200 15948
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/application/form_control/ HTTP/1.1" 200 15960
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/ HTTP/1.1" 200 15838
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/add/ HTTP/1.1" 200 26340
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+"GET /admin/auth/group/ HTTP/1.1" 200 15838
+"GET /admin/application/administrator/ HTTP/1.1" 200 19450
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
