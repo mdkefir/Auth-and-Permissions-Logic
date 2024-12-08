@@ -60,8 +60,8 @@ class GradeAdmin(admin.ModelAdmin):
 
 @admin.register(Hours_per_semestr)
 class HoursPerSemesterAdmin(admin.ModelAdmin):
-    list_display = ['hours', 'semester', 'plan', 'disciple']
-    search_fields = ['disciple__name', 'plan__code']
+    list_display = ['hours', 'semester', 'education_plan', 'disciple']
+    search_fields = ['disciple__name', 'education_plan__code']
 
 @admin.register(Complexity)
 class ComplexityAdmin(admin.ModelAdmin):

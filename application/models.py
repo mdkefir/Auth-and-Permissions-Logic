@@ -150,7 +150,7 @@ class Hours_per_semestr(models.Model):
     hours = models.IntegerField(verbose_name="Часы")
     semester = models.IntegerField(verbose_name="Семестр")
     
-    plan = models.ForeignKey("Education_plan", on_delete=models.SET_NULL, null=True)
+    education_plan = models.ForeignKey("Education_plan", on_delete=models.SET_NULL, null=True)
     disciple = models.ForeignKey("Disciple", on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -158,7 +158,7 @@ class Hours_per_semestr(models.Model):
         verbose_name_plural = "Часы за семестр"
 
     def __str__(self) -> str:
-        return f"{self.hours} {self.semester} {self.plan} {self.disciple}"
+        return f"{self.hours} {self.semester} {self.education_plan} {self.disciple}"
 
 
 class Complexity(models.Model):
