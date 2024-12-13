@@ -15,13 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from application.views import HelloWorldAPIView
 from application.views import GroupListView, StudentListView, TeacherListView, DiscipleListView, AttendanceListView, CourseProjectListView, DiplomaListView, EducationPlanListView, FormControlListView, GradeListView, HoursPerSemestrListView, ComplexityListView, PractiseListView, PractiseTypeListView, RatingListView, RatingTypeListView, SpecialityListView
+from application.views import RegisterView, LoginView, CheckPermissionsView # Auth views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', HelloWorldAPIView.as_view(), name='hello_world'),
+    path('api-auth/', include('rest_framework.urls')),
     path('groups/', GroupListView.as_view(), name='group-list'),
     path('students/', StudentListView.as_view(), name='student-list'),
     path('teachers/', TeacherListView.as_view(), name='teacher-list'),
@@ -39,4 +42,8 @@ urlpatterns = [
     path('ratings/', RatingListView.as_view(), name='rating-list'),
     path('rating-types/', RatingTypeListView.as_view(), name='rating-type-list'),
     path('specialities/', SpecialityListView.as_view(), name='speciality-list'),
+    # Auth paths
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('check-permissions/', CheckPermissionsView.as_view(), name='check-permissions'),
 ]

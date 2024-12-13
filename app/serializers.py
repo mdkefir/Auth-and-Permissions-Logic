@@ -1,5 +1,24 @@
 from rest_framework import serializers
-from application.models import Group, Student, Teacher, Disciple, Attendance, Course_project, Diploma, Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise, Practise_type, Rating, Rating_type, Speciality
+from application.models import Administrator, Group, Student, Teacher, Disciple, Attendance, Course_project, Diploma, Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise, Practise_type, Rating, Rating_type, Speciality
+from django.contrib.auth import get_user_model
+
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+class RegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Administrator
+        fields = ['email', 'name', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        email = validated_data.pop('email')
+        password = validated_data.pop('password')
+        user = Administrator.objects.create_user(email=email, password=password, **validated_data)
+        return user
+
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:

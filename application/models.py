@@ -1,11 +1,54 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
+class AdministratorManager(BaseUserManager):
+    def create_user(self, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError('Электронная почта обязательна')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, password, **extra_fields)
+
+
+class Administrator(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(unique=True, verbose_name="Электронная почта")
+    name = models.CharField(max_length=255, verbose_name="ФИО")
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='administrator_groups',  # Уникальное имя обратной связи
+        blank=True,
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='administrator_permissions',  # Уникальное имя обратной связи
+        blank=True,
+    )
+
+    objects = AdministratorManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
+
+    class Meta:
+        verbose_name = "Администратор"
+        verbose_name_plural = "Администраторы"
 
 
 class Teacher(models.Model):
     first_name = models.TextField(max_length=255, verbose_name="Имя")
     last_name = models.TextField(max_length=255, verbose_name="Фамилия")
     patronymic = models.TextField(max_length=255, verbose_name="Отчество", null=True, blank=True)
-    
+
     class Meta:
         verbose_name = "Преподаватель"
         verbose_name_plural = "Преподаватели"

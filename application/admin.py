@@ -3,13 +3,19 @@ from django.contrib import admin
 from .models import (
     Teacher, Student, Group, Disciple, Attendance, Course_project, Diploma,
     Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise,
-    Practise_type, Rating, Rating_type, Speciality
+    Practise_type, Rating, Rating_type, Speciality, Administrator
 )
+
+@admin.register(Administrator)
+class AdministratorAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'is_active', 'is_staff', 'is_superuser']
+    search_fields = ['name']
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ['last_name', 'first_name', 'patronymic']
     search_fields = ['last_name', 'first_name', 'patronymic']
+
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
