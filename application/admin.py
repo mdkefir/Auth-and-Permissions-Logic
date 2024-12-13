@@ -13,15 +13,15 @@ class AdministratorAdmin(admin.ModelAdmin):
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['last_name', 'first_name', 'patronymic']
+    search_fields = ['last_name', 'first_name', 'patronymic']
 
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ['name', 'birth_date', 'sex', 'school', 'entery_score', 'group', 'rating']
+    list_display = ['last_name', 'first_name', 'patronymic', 'birth_date', 'sex', 'school', 'entery_score', 'group', 'rating']
     list_filter = ['sex', 'group', 'rating']
-    search_fields = ['name', 'school']
+    search_fields = ['last_name', 'first_name', 'patronymic', 'school']
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
@@ -37,17 +37,17 @@ class DiscipleAdmin(admin.ModelAdmin):
 class AttendanceAdmin(admin.ModelAdmin):
     list_display = ['date_time', 'student', 'complexity']
     list_filter = ['date_time']
-    search_fields = ['student__name']
+    search_fields = ['student__last_name', 'student__first_name']
 
 @admin.register(Course_project)
 class CourseProjectAdmin(admin.ModelAdmin):
     list_display = ['grade', 'student', 'hps']
-    search_fields = ['student__name']
+    search_fields = ['student__last_name', 'student__first_name']
 
 @admin.register(Diploma)
 class DiplomaAdmin(admin.ModelAdmin):
     list_display = ['grade', 'student', 'teacher', 'education_plan']
-    search_fields = ['student__name', 'teacher__name']
+    search_fields = ['student__last_name', 'student__first_name', 'teacher__last_name', 'teacher__first_name']
 
 @admin.register(Education_plan)
 class EducationPlanAdmin(admin.ModelAdmin):
@@ -62,22 +62,22 @@ class FormControlAdmin(admin.ModelAdmin):
 @admin.register(Grade)
 class GradeAdmin(admin.ModelAdmin):
     list_display = ['grade', 'student', 'form_control']
-    search_fields = ['student__name']
+    search_fields = ['student__last_name', 'student__first_name']
 
 @admin.register(Hours_per_semestr)
 class HoursPerSemesterAdmin(admin.ModelAdmin):
-    list_display = ['hours', 'semester', 'plan', 'disciple']
-    search_fields = ['disciple__name', 'plan__code']
+    list_display = ['hours', 'semester', 'education_plan', 'disciple']
+    search_fields = ['disciple__name', 'education_plan__code']
 
 @admin.register(Complexity)
 class ComplexityAdmin(admin.ModelAdmin):
     list_display = ['teacher', 'group', 'form_control']
-    search_fields = ['teacher__name', 'group__title']
+    search_fields = ['teacher__last_name', 'teacher__first_name', 'group__title']
 
 @admin.register(Practise)
 class PractiseAdmin(admin.ModelAdmin):
     list_display = ['grade', 'student', 'education_plan', 'practise_type']
-    search_fields = ['student__name', 'practise_type__title']
+    search_fields = ['student__last_name', 'student__first_name', 'practise_type__title']
 
 @admin.register(Practise_type)
 class PractiseTypeAdmin(admin.ModelAdmin):
@@ -98,4 +98,3 @@ class RatingTypeAdmin(admin.ModelAdmin):
 class SpecialityAdmin(admin.ModelAdmin):
     list_display = ['code', 'title']
     search_fields = ['title', 'code']
-
