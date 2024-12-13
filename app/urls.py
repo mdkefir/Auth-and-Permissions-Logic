@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from application.views import HelloWorldAPIView
 from application.views import GroupListView, StudentListView, TeacherListView, DiscipleListView, AttendanceListView, CourseProjectListView, DiplomaListView, EducationPlanListView, FormControlListView, GradeListView, HoursPerSemestrListView, ComplexityListView, PractiseListView, PractiseTypeListView, RatingListView, RatingTypeListView, SpecialityListView
 from application.views import RegisterView, LoginView, CheckPermissionsView # Auth views
@@ -24,6 +24,7 @@ from application.views import RegisterView, LoginView, CheckPermissionsView # Au
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', HelloWorldAPIView.as_view(), name='hello_world'),
+    path('api-auth/', include('rest_framework.urls')),
     path('groups/', GroupListView.as_view(), name='group-list'),
     path('students/', StudentListView.as_view(), name='student-list'),
     path('teachers/', TeacherListView.as_view(), name='teacher-list'),
