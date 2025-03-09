@@ -49,10 +49,22 @@ class LoginView(APIView):
             user = authenticate(email=serializer.validated_data['email'], password=serializer.validated_data['password'])
             if user:
                 refresh = RefreshToken.for_user(user)
-                return Response({
+                access_token = str(refresh.access_token)
+
+                # Создаём response и добавляем HTTPOnly Cookie
+                response = Response({
                     'refresh': str(refresh),
-                    'access': str(refresh.access_token)
+                    'access': access_token
                 })
+                response.set_cookie(
+                    key="access_token", 
+                    value=access_token, 
+                    httponly=True,
+                    samesite='Lax',
+                    secure=False  # todo включить True, если используется HTTPS
+                )
+                return response
+
             return Response({"error": "Неверные данные"}, status=401)
         return Response(serializer.errors, status=400)
 

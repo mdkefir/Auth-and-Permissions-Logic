@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'application',
     
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissions',
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # ! Включает интерфейс DRF
+    ),
 }
 
 SIMPLE_JWT = {
