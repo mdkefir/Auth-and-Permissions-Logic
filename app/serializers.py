@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from application.models import Administrator, Group, Student, Teacher, Disciple, Attendance, Course_project, Diploma, Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise, Practise_type, Rating, Rating_type, Speciality
+from application.models import Administrator
+from application.models import Academ, Attendance, CourseProjects, DebtAudit, Debts, Diploma, Disciples, EducationPlan, FormControl, Grades, Group, HoursPerSemest, Nagruzka, Practise, PractiseType, Rating, RatingType, Specialty, Student, Teachers
 from django.contrib.auth import get_user_model
 
 
@@ -20,103 +21,102 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-class GroupSerializer(serializers.ModelSerializer):
+class AcademSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Group
+        model = Academ
         fields = '__all__'
-
-
-class StudentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Student
-        fields = '__all__'
-
-
-class TeacherSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Teacher
-        fields = '__all__'
-
-
-class DiscipleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Disciple
-        fields = '__all__'
-
 
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attendance
         fields = '__all__'
 
-
-class CourseProjectSerializer(serializers.ModelSerializer):
+class CourseProjectsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Course_project
+        model = CourseProjects
         fields = '__all__'
 
+class DebtAuditSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DebtAudit
+        fields = '__all__'
+
+class DebtsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Debts
+        fields = '__all__'
 
 class DiplomaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Diploma
         fields = '__all__'
 
+class DisciplesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Disciples
+        fields = '__all__'
 
 class EducationPlanSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Education_plan
+        model = EducationPlan
         fields = '__all__'
-
 
 class FormControlSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Form_control
+        model = FormControl
         fields = '__all__'
 
-
-class GradeSerializer(serializers.ModelSerializer):
+class GradesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Grade
+        model = Grades
         fields = '__all__'
 
-
-class HoursPerSemestrSerializer(serializers.ModelSerializer):
+class GroupSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Hours_per_semestr
+        model = Group
         fields = '__all__'
 
-
-class ComplexitySerializer(serializers.ModelSerializer):
+class HoursPerSemestSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Complexity
+        model = HoursPerSemest
         fields = '__all__'
 
+class NagruzkaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Nagruzka
+        fields = '__all__'
 
 class PractiseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Practise
         fields = '__all__'
 
-
 class PractiseTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Practise_type
+        model = PractiseType
         fields = '__all__'
-
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = '__all__'
 
-
 class RatingTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Rating_type
+        model = RatingType
         fields = '__all__'
 
-
-class SpecialitySerializer(serializers.ModelSerializer):
+class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Speciality
+        model = Specialty
+        fields = '__all__'
+
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = '__all__'
+
+class TeachersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Teachers
         fields = '__all__'

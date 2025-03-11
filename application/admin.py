@@ -1,100 +1,130 @@
 from django.contrib import admin
 
-from .models import (
-    Teacher, Student, Group, Disciple, Attendance, Course_project, Diploma,
-    Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise,
-    Practise_type, Rating, Rating_type, Speciality, Administrator
-)
+# from .models import (
+#     Teacher, Student, Group, Disciple, Attendance, Course_project, Diploma,
+#     Education_plan, Form_control, Grade, Hours_per_semestr, Complexity, Practise,
+#     Practise_type, Rating, Rating_type, Speciality, Administrator
+# )
+from .models import Academ, Attendance, CourseProjects, DebtAudit, Debts, Diploma, Disciples, EducationPlan, FormControl, Grades, Group, HoursPerSemest, Nagruzka, Practise, PractiseType, Rating, RatingType, Specialty, Student, Teachers
+from .models import Administrator
 
 @admin.register(Administrator)
 class AdministratorAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'is_active', 'is_staff', 'is_superuser']
     search_fields = ['name']
-
-@admin.register(Teacher)
-class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['last_name', 'first_name', 'patronymic']
-    search_fields = ['last_name', 'first_name', 'patronymic']
-
-
-@admin.register(Student)
-class StudentAdmin(admin.ModelAdmin):
-    list_display = ['last_name', 'first_name', 'patronymic', 'birth_date', 'sex', 'school', 'entery_score', 'group', 'rating']
-    list_filter = ['sex', 'group', 'rating']
-    search_fields = ['last_name', 'first_name', 'patronymic', 'school']
-
-@admin.register(Group)
-class GroupAdmin(admin.ModelAdmin):
-    list_display = ['code', 'title']
-    search_fields = ['code', 'title']
-
-@admin.register(Disciple)
-class DiscipleAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
-
+####################################################################################################################
+@admin.register(Academ)
+class AcademAdmin(admin.ModelAdmin):
+    list_display = ['student', 'previous_group', 'relevant_group', 'start_date', 'end_date']
+    list_filter = ['previous_group', 'relevant_group', 'start_date', 'end_date']
+    search_fields = ['student__name', 'start_date', 'end_date']
+    
 @admin.register(Attendance)
 class AttendanceAdmin(admin.ModelAdmin):
-    list_display = ['date_time', 'student', 'complexity']
-    list_filter = ['date_time']
-    search_fields = ['student__last_name', 'student__first_name']
+    list_display = ['student', 'nagruzka', 'percent_of_attendance']
+    list_filter = ['nagruzka', 'student']
+    search_fields = ['student__name', 'percent_of_attendance']
 
-@admin.register(Course_project)
-class CourseProjectAdmin(admin.ModelAdmin):
-    list_display = ['grade', 'student', 'hps']
-    search_fields = ['student__last_name', 'student__first_name']
+@admin.register(CourseProjects)
+class CourseProjectsAdmin(admin.ModelAdmin):
+    list_display = ['student', 'hps', 'grade']
+    list_filter = ['student', 'hps', 'grade']
+    search_fields = ['student__name', 'hps__hours', 'grade']
+
+@admin.register(DebtAudit)
+class DebtAuditAdmin(admin.ModelAdmin):
+    list_display = ['date', 'debt_event', 'debt']
+    list_filter = ['date', 'debt_event', 'debt']
+    search_fields = ['debt_event', 'debt__name', 'date']
+
+@admin.register(Debts)
+class DebtsAdmin(admin.ModelAdmin):
+    list_display = ['student', 'hps']
+    list_filter = ['student', 'hps']
+    search_fields = ['student__name', 'hps__hours']
 
 @admin.register(Diploma)
 class DiplomaAdmin(admin.ModelAdmin):
-    list_display = ['grade', 'student', 'teacher', 'education_plan']
-    search_fields = ['student__last_name', 'student__first_name', 'teacher__last_name', 'teacher__first_name']
+    list_display = ['student', 'teacher', 'plan', 'grade']
+    list_filter = ['student', 'teacher', 'plan', 'grade']
+    search_fields = ['student__name', 'teacher__last_name', 'teacher__first_name', 'plan__name', 'grade']
 
-@admin.register(Education_plan)
+@admin.register(Disciples)
+class DisciplesAdmin(admin.ModelAdmin):
+    list_display = ['disciple_name']
+    search_fields = ['disciple_name']
+
+@admin.register(EducationPlan)
 class EducationPlanAdmin(admin.ModelAdmin):
     list_display = ['code', 'year_of_conclude']
-    search_fields = ['code']
+    list_filter = ['code', 'year_of_conclude']
+    search_fields = ['code__name', 'year_of_conclude']
 
-@admin.register(Form_control)
+@admin.register(FormControl)
 class FormControlAdmin(admin.ModelAdmin):
-    list_display = ['form', 'hps']
-    search_fields = ['form']
+    list_display = ['hps', 'form']
+    list_filter = ['hps', 'form']
+    search_fields = ['hps__hours', 'form']
 
-@admin.register(Grade)
-class GradeAdmin(admin.ModelAdmin):
-    list_display = ['grade', 'student', 'form_control']
-    search_fields = ['student__last_name', 'student__first_name']
+@admin.register(Grades)
+class GradesAdmin(admin.ModelAdmin):
+    list_display = ['student', 'fc', 'grade']
+    list_filter = ['student', 'fc', 'grade']
+    search_fields = ['student__name', 'fc__form', 'grade']
 
-@admin.register(Hours_per_semestr)
-class HoursPerSemesterAdmin(admin.ModelAdmin):
-    list_display = ['hours', 'semester', 'education_plan', 'disciple']
-    search_fields = ['disciple__name', 'education_plan__code']
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ['title', 'plan']
+    list_filter = ['plan']
+    search_fields = ['title', 'plan__code__name']
 
-@admin.register(Complexity)
-class ComplexityAdmin(admin.ModelAdmin):
-    list_display = ['teacher', 'group', 'form_control']
-    search_fields = ['teacher__last_name', 'teacher__first_name', 'group__title']
+@admin.register(HoursPerSemest)
+class HoursPerSemestAdmin(admin.ModelAdmin):
+    list_display = ['disciple', 'semester', 'hours', 'start_date', 'end_date']
+    list_filter = ['disciple', 'semester', 'start_date', 'end_date']
+    search_fields = ['disciple__disciple_name', 'semester', 'hours']
+
+@admin.register(Nagruzka)
+class NagruzkaAdmin(admin.ModelAdmin):
+    list_display = ['teacher', 'group', 'fc']
+    list_filter = ['teacher', 'group', 'fc']
+    search_fields = ['teacher__last_name', 'group__title', 'fc__form']
 
 @admin.register(Practise)
 class PractiseAdmin(admin.ModelAdmin):
-    list_display = ['grade', 'student', 'education_plan', 'practise_type']
-    search_fields = ['student__last_name', 'student__first_name', 'practise_type__title']
+    list_display = ['student', 'type', 'grade']
+    list_filter = ['student', 'type', 'grade']
+    search_fields = ['student__name', 'type__title', 'grade']
 
-@admin.register(Practise_type)
+@admin.register(PractiseType)
 class PractiseTypeAdmin(admin.ModelAdmin):
     list_display = ['title']
     search_fields = ['title']
 
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
-    list_display = ['event', 'score', 'rating_type']
-    search_fields = ['event', 'rating_type__title']
+    list_display = ['type', 'event', 'score']
+    list_filter = ['type', 'score']
+    search_fields = ['event', 'type__title', 'score']
 
-@admin.register(Rating_type)
+@admin.register(RatingType)
 class RatingTypeAdmin(admin.ModelAdmin):
     list_display = ['title']
     search_fields = ['title']
 
-@admin.register(Speciality)
-class SpecialityAdmin(admin.ModelAdmin):
+@admin.register(Specialty)
+class SpecialtyAdmin(admin.ModelAdmin):
     list_display = ['code', 'title']
-    search_fields = ['title', 'code']
+    search_fields = ['code', 'title']
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'group', 'rating', 'birth_date', 'sex', 'entry_score', 'school', 'debt', 'middle_value_of_sertificate']
+    list_filter = ['group', 'rating', 'sex', 'debt']
+    search_fields = ['name', 'group__title', 'rating__event', 'school']
+
+@admin.register(Teachers)
+class TeachersAdmin(admin.ModelAdmin):
+    list_display = ['teacher_name']
+    search_fields = ['teacher_name']
+####################################################################################################################
