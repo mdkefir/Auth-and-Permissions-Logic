@@ -112,7 +112,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'IRNTU-Dashboard', 
-        'HOST': '127.0.0.1',
+        # 'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '1433',
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',

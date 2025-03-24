@@ -8,6 +8,8 @@ from .permissions import IsStaffOrSuperUser
 from rest_framework.permissions import IsAuthenticated, AllowAny, DjangoModelPermissions
 from rest_framework.permissions import AllowAny
 from django.contrib.auth import authenticate
+from rest_framework.generics import get_object_or_404
+
 
 # Authentification serializers
 from app.serializers import LoginSerializer, RegisterSerializer
@@ -86,64 +88,114 @@ class HelloWorldAPIView(APIView):
 
 #######################################################################################################
 class AcademListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         academ = Academ.objects.all()
         serializer = AcademSerializer(academ, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class AttendanceListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         attendance = Attendance.objects.all()
         serializer = AttendanceSerializer(attendance, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class CourseProjectsListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         course_projects = CourseProjects.objects.all()
         serializer = CourseProjectsSerializer(course_projects, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class DebtAuditListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         debt_audit = DebtAudit.objects.all()
         serializer = DebtAuditSerializer(debt_audit, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class DebtsListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         debts = Debts.objects.all()
         serializer = DebtsSerializer(debts, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class DiplomaListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         diploma = Diploma.objects.all()
         serializer = DiplomaSerializer(diploma, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class DisciplesListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         disciples = Disciples.objects.all()
         serializer = DisciplesSerializer(disciples, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class EducationPlanListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         education_plan = EducationPlan.objects.all()
         serializer = EducationPlanSerializer(education_plan, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class FormControlListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         form_control = FormControl.objects.all()
         serializer = FormControlSerializer(form_control, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class GradesListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         grades = Grades.objects.all()
         serializer = GradesSerializer(grades, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class GroupListView(APIView):    
     permission_classes = [IsStaffOrSuperUser]
@@ -155,48 +207,91 @@ class GroupListView(APIView):
     def get_queryset(self):
         user = self.request.user
         return super().get_queryset()
+    
+class GroupIDView(APIView):#Для вывода по ID
+    permission_classes = [IsStaffOrSuperUser]
+
+    def get(self, request, group_id):
+        group = get_object_or_404(Group, group_id=group_id) 
+        serializer = GroupSerializer(group)
+        return Response(serializer.data)
 
 class HoursPerSemestListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         hours_per_semest = HoursPerSemest.objects.all()
         serializer = HoursPerSemestSerializer(hours_per_semest, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class NagruzkaListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         nagruzka = Nagruzka.objects.all()
         serializer = NagruzkaSerializer(nagruzka, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class PractiseListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         practise = Practise.objects.all()
         serializer = PractiseSerializer(practise, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class PractiseTypeListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         practise_type = PractiseType.objects.all()
         serializer = PractiseTypeSerializer(practise_type, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class RatingListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         rating = Rating.objects.all()
         serializer = RatingSerializer(rating, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class RatingTypeListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         rating_type = RatingType.objects.all()
         serializer = RatingTypeSerializer(rating_type, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class SpecialtyListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
     def get(self, request):
         specialty = Specialty.objects.all()
         serializer = SpecialtySerializer(specialty, many=True)
         return Response(serializer.data)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return super().get_queryset()
 
 class StudentListView(APIView):
     permission_classes = [IsStaffOrSuperUser]
@@ -208,19 +303,36 @@ class StudentListView(APIView):
     def get_queryset(self):
         user = self.request.user
         return super().get_queryset()
-
-class TeachersListView(APIView):
-    # def get(self, request):
-    #     teachers = Teachers.objects.all()
-    #     serializer = TeachersSerializer(teachers, many=True)
-    #     return Response(serializer.data)
-    queryset = Teachers.objects.all()
-    serializer_class = TeachersSerializer
+    
+class StudentIDView(APIView):#Для вывода по ID
     permission_classes = [IsStaffOrSuperUser]
+
+    def get(self, request, student_id):
+        student = get_object_or_404(Student, student_id=student_id) 
+        serializer = StudentSerializer(student)
+        return Response(serializer.data)
+    
+class TeachersListView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
+    def get(self, request):
+        teachers = Teachers.objects.all()
+        serializer = TeachersSerializer(teachers, many=True)
+        return Response(serializer.data)
+    
+    # queryset = Teachers.objects.all()
+    # serializer_class = TeachersSerializer
 
     def get_queryset(self):
         user = self.request.user
         return super().get_queryset()
+    
+class TeachersIDView(APIView):
+    permission_classes = [IsStaffOrSuperUser]
+
+    def get(self, request, teacher_id):
+        teacher = get_object_or_404(Teachers, teacher_id=teacher_id) 
+        serializer = TeachersSerializer(teacher)
+        return Response(serializer.data)
 #######################################################################################################
 
 class AnalyticsView(APIView):
