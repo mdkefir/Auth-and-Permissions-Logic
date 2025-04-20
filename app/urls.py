@@ -28,10 +28,18 @@ from application.views import (
 from application.views import RegisterView, LoginView, CheckPermissionsView # Auth views
 from application.views import AnalyticsView # Analytic view
 
+from rest_framework.routers import DefaultRouter
+
+from application.api import GradesViewset, SubjectStatisticsViewSet
+
+router = DefaultRouter()
+router.register("statistics/marks", GradesViewset, basename="grades")
+router.register("statistics/subject", SubjectStatisticsViewSet, basename="subject")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', HelloWorldAPIView.as_view(), name='hello_world'),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('academ/', AcademListView.as_view(), name='academ-list'),
     path('attendance/', AttendanceListView.as_view(), name='attendance-list'),
