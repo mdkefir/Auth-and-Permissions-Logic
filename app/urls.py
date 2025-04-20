@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from application.views import HelloWorldAPIView
 from application.views import (
     AcademListView, AttendanceListView, CourseProjectsListView, DebtAuditListView, 
     DebtsListView, DiplomaListView, DisciplesListView, EducationPlanListView, 

@@ -29,10 +29,9 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         try:
             parts = title.split('-')
             year_suffix = int(parts[1])
-            if year_suffix <= 25:  # допустим до 2025 года --------------------------------------
-                return 2000 + year_suffix
-            else:
-                return 1900 + year_suffix
+            current_year = datetime.now().year % 100  # последние две цифры текущего года
+            century = 2000 if year_suffix <= current_year else 1900
+            return century + year_suffix
         except (IndexError, ValueError):
             return None
 
@@ -45,6 +44,25 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         group = request.query_params.get('group')
         subject = request.query_params.get('subject')
 
+        try:
+            course_param = int(course_param) if course_param else None
+        except ValueError:
+            course_param = None
+
+        try:
+            semester_param = int(semester) if semester else None
+        except ValueError:
+            semester_param = None
+
+        # Проверка соответствия семестра и курса
+        if course_param and semester_param:
+            valid_semesters = [(course_param - 1) * 2 + 1, (course_param - 1) * 2 + 2]
+            if semester_param not in valid_semesters:
+                return Response({
+                    "summary": {},
+                    "students": []
+                })
+
         if semester:
             queryset = queryset.filter(fc__hps__semester=semester)
         if group:
@@ -52,7 +70,6 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         if subject:
             queryset = queryset.filter(fc__hps__disciple__disciple_name__icontains=subject)
 
-        # для статистики: преобразуем оценки в int
         filtered_queryset = queryset.annotate(
             grade_int=Case(
                 When(grade='2', then=Value(2)),
@@ -75,12 +92,6 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             maxGrade=Max('grade_int')
         )
 
-        # фильтрация по курсу, если задан
-        try:
-            course_param = int(course_param) if course_param else None
-        except ValueError:
-            course_param = None
-
         seen_ids = set()
         students_data = []
 
@@ -98,20 +109,24 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             if course_param and course != course_param:
                 continue
 
-            if student.student_id not in seen_ids:
-                students_data.append({
-                    "id": student.student_id,
-                    "name": student.name,
-                    "group": group.title if group else None,
-                    "course": course,
-                    "grade": int(grade.grade) if grade.grade and grade.grade.isdigit() else None
-                })
-                seen_ids.add(student.student_id)
+            grade_value = int(grade.grade) if grade.grade and grade.grade.isdigit() else None
+
+            # Присваиваем grade_value как None, если нет оценки
+            students_data.append({
+                "id": student.student_id,
+                "name": student.name,
+                "group": group.title if group else None,
+                "course": course,
+                "grade": grade_value
+            })
+
+            seen_ids.add(student.student_id)
 
         return Response({
             "summary": stats,
             "students": students_data
         })
+
     
 
 
