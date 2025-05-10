@@ -1,7 +1,7 @@
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.response import Response
 from django.db.models import Avg, Count, Min, Max, Q, IntegerField, Value, Case, When, F, ExpressionWrapper, FloatField
-from .models import Grades, Academ
+from .models import Grades, Academ, CourseProjects
 from app.serializers import GradesSerializer
 from datetime import datetime
 
@@ -14,6 +14,8 @@ from django.utils import timezone
 from collections import defaultdict
 
 from .models import Student, Debts, Group
+
+from itertools import chain
 
 class GradesViewset(mixins.ListModelMixin, GenericViewSet):
     queryset = Grades.objects.select_related('student', 'student__group', 'fc')
@@ -44,7 +46,13 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         return now.year < expected_graduation_year or (now.year == expected_graduation_year and now.month < 7)
 
     def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
+        # Get regular grades queryset
+        grades_queryset = self.get_queryset()
+        
+        # Get course projects queryset
+        course_projects_queryset = CourseProjects.objects.select_related(
+            'student', 'student__group', 'hps', 'hps__disciple'
+        )
 
         course_param = request.query_params.get('course')
         semester = request.query_params.get('semester')
@@ -75,20 +83,23 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             except ValueError:
                 pass
 
-        # Apply filters
+        # Apply filters to both querysets
         if semester:
-            queryset = queryset.filter(fc__hps__semester=semester)
+            grades_queryset = grades_queryset.filter(fc__hps__semester=semester)
+            course_projects_queryset = course_projects_queryset.filter(hps__semester=semester)
         if group:
-            queryset = queryset.filter(student__group__title=group)
+            grades_queryset = grades_queryset.filter(student__group__title=group)
+            course_projects_queryset = course_projects_queryset.filter(student__group__title=group)
         if subject:
-            queryset = queryset.filter(fc__hps__disciple__disciple_name=subject)
+            grades_queryset = grades_queryset.filter(fc__hps__disciple__disciple_name=subject)
+            course_projects_queryset = course_projects_queryset.filter(hps__disciple__disciple_name=subject)
 
         try:
             course_param = int(course_param) if course_param else None
         except ValueError:
             course_param = None
 
-        # Process grades
+        # Process grades and course projects
         students_grades = defaultdict(list)
         grade_stats = {
             'numeric_grades': [],
@@ -100,16 +111,14 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             'countNejavka': 0
         }
 
-        # First pass - collect all grades and filter out students without grades
-        for grade in queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
+        # Process regular grades
+        for grade in grades_queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
             student = grade.student
             group_obj = student.group
             
-            # Skip if no grade
             if not grade.grade:
                 continue
-            
-            # Check course filter
+                
             if group_obj and group_obj.title:
                 year_of_admission = self.extract_year_from_group_title(group_obj.title)
                 if year_of_admission:
@@ -119,7 +128,6 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                     if course_param and course != course_param:
                         continue
             
-            # Process different grade types
             grade_value = str(grade.grade).strip()
             
             if grade_value.isdigit():
@@ -144,16 +152,47 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                 })
                 grade_stats['countNejavka'] += 1
 
-        # Prepare students data - only those who have grades
-        students_data = []
-        
-        # Second pass - get student details only for those with grades
-        for grade in queryset.select_related('student', 'student__group'):
-            student = grade.student
-            if student.student_id not in students_grades:
+        # Process course projects
+        for course_project in course_projects_queryset:
+            student = course_project.student
+            group_obj = student.group
+            
+            if not course_project.grade:
                 continue
                 
-            if any(s['id'] == student.student_id for s in students_data):
+            if group_obj and group_obj.title:
+                year_of_admission = self.extract_year_from_group_title(group_obj.title)
+                if year_of_admission:
+                    if not self.student_is_still_enrolled(year_of_admission):
+                        continue
+                    course = self.calculate_course(year_of_admission)
+                    if course_param and course != course_param:
+                        continue
+            
+            grade_int = course_project.grade
+            if 2 <= grade_int <= 5:
+                students_grades[student.student_id].append({
+                    "grade": grade_int,
+                    "type": "grade",
+                    "is_course_project": True
+                })
+                grade_stats['numeric_grades'].append(grade_int)
+                grade_stats[f'countGrade{grade_int}'] += 1
+
+        # Prepare students data
+        students_data = []
+        processed_student_ids = set()
+        
+        # Combine data from both querysets
+        for grade in chain(
+            grades_queryset.select_related('student', 'student__group'),
+            course_projects_queryset.select_related('student', 'student__group')
+        ):
+            student = grade.student
+            if student.student_id in processed_student_ids:
+                continue
+                
+            if student.student_id not in students_grades:
                 continue
                 
             group_obj = student.group
@@ -166,6 +205,7 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                            if group_obj and group_obj.title else None,
                 "grades": [g["grade"] for g in students_grades[student.student_id]]
             })
+            processed_student_ids.add(student.student_id)
 
         # Calculate statistics
         numeric_grades = grade_stats['numeric_grades']
@@ -600,10 +640,10 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
                 output_field=FloatField()
             ),
             dropoutRisk=ExpressionWrapper(
-                (1 - F('attendance_percent') / 100) * 0.4
-                + (1 - F('avg_activity') / 10) * 0.3
-                + (1 - F('avg_grade') / 5) * 0.3,
-                output_field=FloatField()
+            (1 - F('attendance_percent') / 100) * 0.4
+            + (1 - F('avg_activity') / 10) * 0.3
+            + (1 - F('avg_grade') / 5) * 0.3,
+            output_field=FloatField()
             )
         )
 
