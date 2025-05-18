@@ -24,12 +24,13 @@ from application.views import (
     RatingTypeListView, SpecialtyListView, StudentListView, TeachersListView,
     StudentIDView, TeachersIDView, GroupIDView
 )
+from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 from application.views import RegisterView, LoginView, CheckPermissionsView # Auth views
 from application.views import AnalyticsView # Analytic view
 
 from rest_framework.routers import DefaultRouter
 
-from application.api import GradesViewset, SubjectStatisticsViewSet, AcademicPerformanceViewSet, AcademicReturnsViewSet, StudentRatingViewSet
+from application.api import GradesViewset, SubjectStatisticsViewSet, AcademicPerformanceViewSet, AcademicReturnsViewSet, StudentRatingViewSet, GroupListViewSet, DiscipleListViewSet
 
 router = DefaultRouter()
 router.register("statistics/marks", GradesViewset, basename="grades")
@@ -37,6 +38,8 @@ router.register("statistics/subject", SubjectStatisticsViewSet, basename="subjec
 router.register("academic/performance", AcademicPerformanceViewSet, basename="performance")
 router.register("academic/returns", AcademicReturnsViewSet, basename="returns")
 router.register("student-rating", StudentRatingViewSet, basename="rating")
+router.register("groups", GroupListViewSet, basename="apigroups")
+router.register("disciples", DiscipleListViewSet, basename="apidisciples")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -66,10 +69,11 @@ urlpatterns = [
     path('teachers/', TeachersListView.as_view(), name='teacher-list'),
     path('teachers/<int:teacher_id>/', TeachersIDView.as_view(), name='teacher-id'),
 
-    # Auth paths
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
     path('check-permissions/', CheckPermissionsView.as_view(), name='check-permissions'),
-    # Analytics paths
+
     path('analyze/', AnalyticsView.as_view(), name='analyze'),
+    path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]

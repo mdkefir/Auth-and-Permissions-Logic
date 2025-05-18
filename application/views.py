@@ -4,9 +4,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
-from .permissions import IsStaffOrSuperUser
+# from .permissions import IsStaffOrSuperUser
 from rest_framework.permissions import IsAuthenticated, AllowAny, DjangoModelPermissions
-from rest_framework.permissions import AllowAny
+from application.permissions import IsStaffOrSuperUser
 from django.contrib.auth import authenticate
 from rest_framework.generics import get_object_or_404
 
@@ -35,7 +35,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 class CheckPermissionsView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return Response({
@@ -44,7 +44,7 @@ class CheckPermissionsView(APIView):
       
       
 class RegisterView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -64,22 +64,17 @@ class LoginView(APIView):
                 refresh = RefreshToken.for_user(user)
                 access_token = str(refresh.access_token)
 
-                # Создаём response и добавляем HTTPOnly Cookie
-                response = Response({
+                response_data = {
                     'refresh': str(refresh),
-                    'access': access_token
-                })
-                response.set_cookie(
-                    key="access_token", 
-                    value=access_token, 
-                    httponly=True,
-                    samesite='Lax',
-                    secure=False  # todo включить True, если используется HTTPS
-                )
-                return response
+                    'access': access_token,
+                    'name': user.name,  # ФИО пользователя
+                    'email': user.email # Email
+                }
 
-            return Response({"error": "Неверные данные"}, status=401)
-        return Response(serializer.errors, status=400)
+                return Response(response_data, status=status.HTTP_200_OK)
+
+            return Response({"detail": "Неверные учетные данные."}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class HelloWorldAPIView(APIView):
@@ -88,7 +83,7 @@ class HelloWorldAPIView(APIView):
 
 #######################################################################################################
 class AcademListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         academ = Academ.objects.all()
         serializer = AcademSerializer(academ, many=True)
@@ -99,7 +94,7 @@ class AcademListView(APIView):
         return super().get_queryset()
 
 class AttendanceListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         attendance = Attendance.objects.all()
         serializer = AttendanceSerializer(attendance, many=True)
@@ -110,7 +105,7 @@ class AttendanceListView(APIView):
         return super().get_queryset()
 
 class CourseProjectsListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         course_projects = CourseProjects.objects.all()
         serializer = CourseProjectsSerializer(course_projects, many=True)
@@ -121,7 +116,7 @@ class CourseProjectsListView(APIView):
         return super().get_queryset()
 
 class DebtAuditListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         debt_audit = DebtAudit.objects.all()
         serializer = DebtAuditSerializer(debt_audit, many=True)
@@ -132,7 +127,7 @@ class DebtAuditListView(APIView):
         return super().get_queryset()
 
 class DebtsListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         debts = Debts.objects.all()
         serializer = DebtsSerializer(debts, many=True)
@@ -143,7 +138,7 @@ class DebtsListView(APIView):
         return super().get_queryset()
 
 class DiplomaListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         diploma = Diploma.objects.all()
         serializer = DiplomaSerializer(diploma, many=True)
@@ -154,7 +149,7 @@ class DiplomaListView(APIView):
         return super().get_queryset()
 
 class DisciplesListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         disciples = Disciples.objects.all()
         serializer = DisciplesSerializer(disciples, many=True)
@@ -165,7 +160,7 @@ class DisciplesListView(APIView):
         return super().get_queryset()
 
 class EducationPlanListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         education_plan = EducationPlan.objects.all()
         serializer = EducationPlanSerializer(education_plan, many=True)
@@ -176,7 +171,7 @@ class EducationPlanListView(APIView):
         return super().get_queryset()
 
 class FormControlListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         form_control = FormControl.objects.all()
         serializer = FormControlSerializer(form_control, many=True)
@@ -187,7 +182,7 @@ class FormControlListView(APIView):
         return super().get_queryset()
 
 class GradesListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         grades = Grades.objects.all()
         serializer = GradesSerializer(grades, many=True)
@@ -198,7 +193,7 @@ class GradesListView(APIView):
         return super().get_queryset()
 
 class GroupListView(APIView):    
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         groups = Group.objects.all()
         serializer = GroupSerializer(groups, many=True)
@@ -209,7 +204,7 @@ class GroupListView(APIView):
         return super().get_queryset()
     
 class GroupIDView(APIView):#Для вывода по ID
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, group_id):
         group = get_object_or_404(Group, group_id=group_id) 
@@ -217,7 +212,7 @@ class GroupIDView(APIView):#Для вывода по ID
         return Response(serializer.data)
 
 class HoursPerSemestListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         hours_per_semest = HoursPerSemest.objects.all()
         serializer = HoursPerSemestSerializer(hours_per_semest, many=True)
@@ -228,7 +223,7 @@ class HoursPerSemestListView(APIView):
         return super().get_queryset()
 
 class NagruzkaListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         nagruzka = Nagruzka.objects.all()
         serializer = NagruzkaSerializer(nagruzka, many=True)
@@ -239,7 +234,7 @@ class NagruzkaListView(APIView):
         return super().get_queryset()
 
 class PractiseListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         practise = Practise.objects.all()
         serializer = PractiseSerializer(practise, many=True)
@@ -250,7 +245,7 @@ class PractiseListView(APIView):
         return super().get_queryset()
 
 class PractiseTypeListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         practise_type = PractiseType.objects.all()
         serializer = PractiseTypeSerializer(practise_type, many=True)
@@ -261,7 +256,7 @@ class PractiseTypeListView(APIView):
         return super().get_queryset()
 
 class RatingListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         rating = Rating.objects.all()
         serializer = RatingSerializer(rating, many=True)
@@ -272,7 +267,7 @@ class RatingListView(APIView):
         return super().get_queryset()
 
 class RatingTypeListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         rating_type = RatingType.objects.all()
         serializer = RatingTypeSerializer(rating_type, many=True)
@@ -283,7 +278,7 @@ class RatingTypeListView(APIView):
         return super().get_queryset()
 
 class SpecialtyListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         specialty = Specialty.objects.all()
         serializer = SpecialtySerializer(specialty, many=True)
@@ -294,7 +289,7 @@ class SpecialtyListView(APIView):
         return super().get_queryset()
 
 class StudentListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         students = Student.objects.all()
         serializer = StudentSerializer(students, many=True)
@@ -305,7 +300,7 @@ class StudentListView(APIView):
         return super().get_queryset()
     
 class StudentIDView(APIView):#Для вывода по ID
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, student_id):
         student = get_object_or_404(Student, student_id=student_id) 
@@ -313,7 +308,7 @@ class StudentIDView(APIView):#Для вывода по ID
         return Response(serializer.data)
     
 class TeachersListView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         teachers = Teachers.objects.all()
         serializer = TeachersSerializer(teachers, many=True)
@@ -327,7 +322,7 @@ class TeachersListView(APIView):
         return super().get_queryset()
     
 class TeachersIDView(APIView):
-    permission_classes = [IsStaffOrSuperUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, teacher_id):
         teacher = get_object_or_404(Teachers, teacher_id=teacher_id) 
@@ -336,7 +331,7 @@ class TeachersIDView(APIView):
 #######################################################################################################
 
 class AnalyticsView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         try:
@@ -398,3 +393,5 @@ class AnalyticsView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    

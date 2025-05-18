@@ -1,9 +1,13 @@
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.response import Response
 from django.db.models import Avg, Count, Min, Max, Q, IntegerField, Value, Case, When, F, ExpressionWrapper, FloatField
-from .models import Grades, Academ
-from app.serializers import GradesSerializer
+from .models import Grades, Academ, Student, Debts, Group, Disciples, CourseProjects
+from app.serializers import GradesSerializer, DisciplesSerializer, GroupSerializer
 from datetime import datetime
+from application.permissions import IsStaffOrSuperUser
+from rest_framework.permissions import IsAuthenticated
+import time
+import logging
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -13,11 +17,12 @@ from django.utils import timezone
 
 from collections import defaultdict
 
-from .models import Student, Debts, Group
+logger = logging.getLogger(__name__)
 
 class GradesViewset(mixins.ListModelMixin, GenericViewSet):
     queryset = Grades.objects.select_related('student', 'student__group', 'fc')
     serializer_class = GradesSerializer
+    permission_classes = [IsAuthenticated]
 
     def calculate_course(self, year_of_admission: int) -> int:
         now = datetime.now()
@@ -44,7 +49,13 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         return now.year < expected_graduation_year or (now.year == expected_graduation_year and now.month < 7)
 
     def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
+        # Get regular grades queryset
+        grades_queryset = self.get_queryset()
+        
+        # Get course projects queryset
+        course_projects_queryset = CourseProjects.objects.select_related(
+            'student', 'student__group', 'hps', 'hps__disciple'
+        )
 
         course_param = request.query_params.get('course')
         semester = request.query_params.get('semester')
@@ -75,21 +86,32 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             except ValueError:
                 pass
 
-        # Apply filters
+        # Apply filters to both querysets
         if semester:
-            queryset = queryset.filter(fc__hps__semester=semester)
+            grades_queryset = grades_queryset.filter(fc__hps__semester=semester)
+            course_projects_queryset = course_projects_queryset.filter(hps__semester=semester)
         if group:
-            queryset = queryset.filter(student__group__title=group)
+            grades_queryset = grades_queryset.filter(student__group__title=group)
+            course_projects_queryset = course_projects_queryset.filter(student__group__title=group)
         if subject:
-            queryset = queryset.filter(fc__hps__disciple__disciple_name=subject)
+            grades_queryset = grades_queryset.filter(fc__hps__disciple__disciple_name=subject)
+            course_projects_queryset = course_projects_queryset.filter(hps__disciple__disciple_name=subject)
 
         try:
             course_param = int(course_param) if course_param else None
         except ValueError:
             course_param = None
 
-        # Process grades
-        students_grades = defaultdict(list)
+        # Process grades and course projects
+        students_data_dict = defaultdict(lambda: {
+            "id": None,
+            "name": None,
+            "group": None,
+            "course": None,
+            "subjects": defaultdict(list)
+        })
+        
+        subjects_info = set()
         grade_stats = {
             'numeric_grades': [],
             'countGrade2': 0,
@@ -100,16 +122,15 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             'countNejavka': 0
         }
 
-        # First pass - collect all grades and filter out students without grades
-        for grade in queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
+        # Process regular grades
+        for grade in grades_queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
             student = grade.student
             group_obj = student.group
+            subject_obj = grade.fc.hps.disciple if grade.fc and grade.fc.hps and grade.fc.hps.disciple else None
             
-            # Skip if no grade
-            if not grade.grade:
+            if not grade.grade or not subject_obj:
                 continue
-            
-            # Check course filter
+                
             if group_obj and group_obj.title:
                 year_of_admission = self.extract_year_from_group_title(group_obj.title)
                 if year_of_admission:
@@ -119,52 +140,88 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                     if course_param and course != course_param:
                         continue
             
-            # Process different grade types
+            # Заполняем основную информацию о студенте
+            students_data_dict[student.student_id]["id"] = student.student_id
+            students_data_dict[student.student_id]["name"] = student.name
+            students_data_dict[student.student_id]["group"] = group_obj.title if group_obj else None
+            students_data_dict[student.student_id]["course"] = self.calculate_course(
+                self.extract_year_from_group_title(group_obj.title)
+            ) if group_obj and group_obj.title else None
+            
+            # Обрабатываем оценку
             grade_value = str(grade.grade).strip()
+            subject_name = subject_obj.disciple_name
+            subjects_info.add((subject_name, subject_obj.disciple_id))
             
             if grade_value.isdigit():
                 grade_int = int(grade_value)
                 if 2 <= grade_int <= 5:
-                    students_grades[student.student_id].append({
-                        "grade": grade_int,
-                        "type": "grade"
-                    })
+                    students_data_dict[student.student_id]["subjects"][subject_name].append(grade_int)
                     grade_stats['numeric_grades'].append(grade_int)
                     grade_stats[f'countGrade{grade_int}'] += 1
             elif grade_value.lower() == 'зачет':
-                students_grades[student.student_id].append({
-                    "grade": grade_value,
-                    "type": "zachet"
-                })
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_value)
                 grade_stats['countZachet'] += 1
             elif grade_value.lower() == 'неявка':
-                students_grades[student.student_id].append({
-                    "grade": grade_value,
-                    "type": "nejavka"
-                })
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_value)
                 grade_stats['countNejavka'] += 1
 
-        # Prepare students data - only those who have grades
-        students_data = []
-        
-        # Second pass - get student details only for those with grades
-        for grade in queryset.select_related('student', 'student__group'):
-            student = grade.student
-            if student.student_id not in students_grades:
-                continue
-                
-            if any(s['id'] == student.student_id for s in students_data):
-                continue
-                
+        # Process course projects
+        for course_project in course_projects_queryset:
+            student = course_project.student
             group_obj = student.group
+            subject_obj = course_project.hps.disciple if course_project.hps and course_project.hps.disciple else None
+            
+            if not course_project.grade or not subject_obj:
+                continue
+                
+            if group_obj and group_obj.title:
+                year_of_admission = self.extract_year_from_group_title(group_obj.title)
+                if year_of_admission:
+                    if not self.student_is_still_enrolled(year_of_admission):
+                        continue
+                    course = self.calculate_course(year_of_admission)
+                    if course_param and course != course_param:
+                        continue
+            
+            # Заполняем основную информацию о студенте
+            students_data_dict[student.student_id]["id"] = student.student_id
+            students_data_dict[student.student_id]["name"] = student.name
+            students_data_dict[student.student_id]["group"] = group_obj.title if group_obj else None
+            students_data_dict[student.student_id]["course"] = self.calculate_course(
+                self.extract_year_from_group_title(group_obj.title)
+            ) if group_obj and group_obj.title else None
+            
+            # Обрабатываем оценку
+            grade_int = course_project.grade
+            subject_name = subject_obj.disciple_name
+            subjects_info.add((subject_name, subject_obj.disciple_id))
+            
+            if 2 <= grade_int <= 5:
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_int)
+                grade_stats['numeric_grades'].append(grade_int)
+                grade_stats[f'countGrade{grade_int}'] += 1
+
+        # Prepare final students data
+        students_data = []
+        for student_id, student_data in students_data_dict.items():
+            if not student_data["id"]:
+                continue
+                
+            subjects_list = [
+                {
+                    "subject": subject_name,
+                    "grades": grades
+                }
+                for subject_name, grades in student_data["subjects"].items()
+            ]
             
             students_data.append({
-                "id": student.student_id,
-                "name": student.name,
-                "group": group_obj.title if group_obj else None,
-                "course": self.calculate_course(self.extract_year_from_group_title(group_obj.title)) 
-                           if group_obj and group_obj.title else None,
-                "grades": [g["grade"] for g in students_grades[student.student_id]]
+                "id": student_data["id"],
+                "name": student_data["name"],
+                "group": student_data["group"],
+                "course": student_data["course"],
+                "subjects": subjects_list
             })
 
         # Calculate statistics
@@ -184,10 +241,14 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             "maxGrade": max(numeric_grades) if numeric_grades else None
         }
 
-        return Response({
+        response_data = {
             "summary": stats,
-            "students": students_data
-        })
+            "students": students_data,
+            "subjects": [{"id": sub_id, "name": sub_name} for sub_name, sub_id in subjects_info]
+        }
+
+        return Response(response_data)
+
 
 
 class AcademicPerformanceViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -197,7 +258,8 @@ class AcademicPerformanceViewSet(mixins.ListModelMixin, viewsets.GenericViewSet)
     """
     
     queryset = Student.objects.none()
-    
+    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get_active_debts_filter(self):
         """Фильтр для активных задолженностей (сформированные и не закрытые)"""
         return Q(debts__debtaudit__debt_event='Долг сформирован') & \
@@ -297,6 +359,8 @@ class AcademicReturnsViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     # Добавляем обязательный queryset
     queryset = Academ.objects.none()
     
+    permission_classes = [IsAuthenticated]
+    
     def get_queryset(self):
         """
         Базовый queryset с выборкой всех записей об академотпусках
@@ -360,178 +424,228 @@ class AcademicReturnsViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
 
 class SubjectStatisticsViewSet(mixins.ListModelMixin, GenericViewSet):
-    queryset = Grades.objects.select_related(
-        'student', 
-        'student__group', 
-        'fc', 
-        'fc__hps', 
-        'fc__hps__disciple'
-    )
+    # Убрали queryset отсюда, будем строить динамически
+    # queryset = Grades.objects.select_related(...) # Устарело
     
+    permission_classes = [IsAuthenticated]
+    # Функции calculate_course и extract_year_from_group_title оставляем без изменений
     def calculate_course(self, year_of_admission: int) -> int:
+        # ... (код как был) ...
         now = datetime.now()
         current_year = now.year
         current_month = now.month
-
         if current_month < 9:
             return current_year - year_of_admission
         else:
             return current_year - year_of_admission + 1
 
     def extract_year_from_group_title(self, title: str) -> int | None:
+        # ... (код как был) ...
         try:
             parts = title.split('-')
-            year_suffix = int(parts[1][:2])  # Берем только первые две цифры (например, из "21Б" берем 21)
+            # Убедимся, что берем год правильно (например, 'ИСТб-22-1')
+            year_part = parts[1]
+            year_suffix = int(year_part[:2]) # Берем первые две цифры
             current_year = datetime.now().year % 100
             century = 2000 if year_suffix <= current_year else 1900
             return century + year_suffix
-        except (IndexError, ValueError, AttributeError):
+        except (IndexError, ValueError, AttributeError, TypeError):
+            logger.warning(f"Could not extract year from group title: {title}")
             return None
 
     def list(self, request, *args, **kwargs):
-        # Получаем параметры запроса
+        start_time = time.time() # Замер времени начала
+
+        # 1. Получаем параметры запроса
         course_param = request.query_params.get('course')
         semester_param = request.query_params.get('semester')
         subject_name = request.query_params.get('subject')
-        groups = request.query_params.get('groups', '').split(',')
+        groups_param = request.query_params.get('groups') # Получаем строку
         sort_by = request.query_params.get('sortBy', 'avg')
-        limit = int(request.query_params.get('limit', 5))
+        limit = int(request.query_params.get('limit', 5) or 5)
 
-        # Преобразуем параметры в нужные типы
+
+        # 2. Преобразуем и валидируем параметры
         try:
-            course_param = int(course_param) if course_param else None
+            course_int = int(course_param) if course_param else None
         except ValueError:
-            course_param = None
+            course_int = None
 
         try:
-            semester_param = int(semester_param) if semester_param else None
+            semester_int = int(semester_param) if semester_param else None
         except ValueError:
-            semester_param = None
+            semester_int = None
 
-        # Проверка соответствия курса и семестра
-        if course_param is not None and semester_param is not None:
-            valid_semesters = [
-                (course_param - 1) * 2 + 1,
-                (course_param - 1) * 2 + 2
-            ]
-            if semester_param not in valid_semesters:
+        # Фильтр по группам (очищаем от пустых строк)
+        groups = [g for g in groups_param.split(',') if g] if groups_param else []
+
+        # Проверка соответствия курса и семестра (оставляем как было)
+        if course_int is not None and semester_int is not None:
+            valid_semesters = [(course_int - 1) * 2 + 1, (course_int - 1) * 2 + 2]
+            if semester_int not in valid_semesters:
+                # Возвращаем пустой ответ, если семестр не соответствует курсу
                 return Response({
                     "subjectStats": {"minGrade": None, "avgGrade": None, "maxGrade": None},
                     "gradeDistributionBar": {"2": 0, "3": 0, "4": 0, "5": 0},
                     "bestSubjects": []
                 }, status=status.HTTP_200_OK)
 
-        # Базовый запрос
+        # 3. Строим базовый QuerySet с нужными связями
+        # Выбираем только нужные поля + FK для дальнейших связей
         queryset = Grades.objects.select_related(
-            'student__group', 
-            'fc__hps__disciple'
+            'student__group',        # Для фильтрации по названию группы и году
+            'fc__hps__disciple',     # Для фильтрации по названию предмета и группировки
+            'fc__hps'                # Для фильтрации по семестру
+        ).only(
+            'grade',                 # Оригинальная оценка (строка)
+            'student__student_id',   # ID студента
+            'student__group__title', # Название группы для фильтра и года
+            'fc__hps__semester',     # Семестр для фильтра
+            'fc__hps__disciple__disciple_id', # ID предмета
+            'fc__hps__disciple__disciple_name', # Название предмета для группировки/фильтра
+            'fc_id' # ID формы контроля (может понадобиться для JOIN с оценками)
         )
-        
-        # 1. Фильтр по группе
-        if groups and groups[0]:
-            queryset = queryset.filter(student__group__title__in=groups)
-        
-        # 2. Фильтр по курсу (если нужен)
-        if course_param:
-            # Реализуйте ваш метод фильтрации по курсу
-            pass
-        
-        # 3. Фильтр по семестру
-        if semester_param:
-            queryset = queryset.filter(fc__hps__semester=semester_param)
-        
-        # 4. Фильтр по предмету
-        if subject_name:
-            queryset = queryset.filter(fc__hps__disciple__disciple_name__icontains=subject_name)
 
-        # Преобразуем оценки в числовой формат для вычислений
-        annotated_queryset = queryset.annotate(
+        # 4. Применяем фильтры как можно раньше
+
+        # Фильтр по семестру
+        if semester_int is not None:
+            queryset = queryset.filter(fc__hps__semester=semester_int)
+
+        # Фильтр по группам
+        if groups:
+            queryset = queryset.filter(student__group__title__in=groups)
+
+        # Фильтр по предмету (если указан - для основной статистики)
+        subject_queryset = queryset # Копия для статистики по конкретному предмету
+        if subject_name:
+            # Используем icontains для неточного совпадения, если нужно
+            # subject_queryset = subject_queryset.filter(fc__hps__disciple__disciple_name=subject_name)
+            subject_queryset = subject_queryset.filter(fc__hps__disciple__disciple_name__icontains=subject_name)
+
+
+        # Фильтр по курсу (реализация)
+        if course_int is not None:
+            # Собираем ID студентов, соответствующих курсу
+            # Это может быть не очень эффективно на больших данных, если групп много.
+            # Альтернатива - хранить курс студента или год поступления в модели Student.
+            student_ids_for_course = []
+            # Получаем уникальные группы из текущего queryset
+            relevant_groups = queryset.values_list('student__group__title', flat=True).distinct()
+            for group_title in relevant_groups:
+                 if group_title: # Пропускаем студентов без группы
+                    year = self.extract_year_from_group_title(group_title)
+                    if year and self.calculate_course(year) == course_int:
+                        # Находим студентов из этой группы в исходном queryset
+                        # (можно оптимизировать, если Student <-> Group - OneToOne/ForeignKey)
+                        students_in_group = queryset.filter(student__group__title=group_title).values_list('student_id', flat=True).distinct()
+                        student_ids_for_course.extend(list(students_in_group))
+
+            # Применяем фильтр по ID студентов
+            # Убираем дубликаты ID перед фильтрацией
+            queryset = queryset.filter(student_id__in=list(set(student_ids_for_course)))
+            # Также фильтруем subject_queryset, если предмет был указан
+            if subject_name:
+                subject_queryset = subject_queryset.filter(student_id__in=list(set(student_ids_for_course)))
+
+
+        # 5. Аннотация числовой оценки (только для тех записей, где оценка '2'-'5')
+        # Используем Q-объекты для фильтрации *до* аннотации
+        numeric_grades_q = Q(grade__in=['2', '3', '4', '5'])
+
+        annotated_queryset = subject_queryset.filter(numeric_grades_q).annotate(
             grade_int=Case(
                 When(grade='2', then=Value(2)),
                 When(grade='3', then=Value(3)),
                 When(grade='4', then=Value(4)),
                 When(grade='5', then=Value(5)),
-                default=Value(None),
+                # default не нужен, т.к. мы уже отфильтровали
                 output_field=IntegerField()
             )
         )
 
-        # Статистика для выбранного предмета
-        subject_stats = annotated_queryset.aggregate(
+        # 6. Расчет основной статистики (Min/Avg/Max) для *предметного* queryset
+        subject_stats_agg = annotated_queryset.aggregate(
             min_grade=Min('grade_int'),
             avg_grade=Avg('grade_int'),
             max_grade=Max('grade_int')
         )
+        # Округляем среднее, если оно не None
+        avg_grade_rounded = round(subject_stats_agg['avg_grade'], 2) if subject_stats_agg['avg_grade'] is not None else None
 
-        # Распределение оценок (2, 3, 4, 5)
-        grade_distribution = annotated_queryset.values('grade') \
-            .annotate(count=Count('grade')) \
-            .order_by('grade')
+        # 7. Расчет распределения оценок для *предметного* queryset
+        grade_distribution = subject_queryset.filter(numeric_grades_q)\
+            .values('grade') \
+            .annotate(count=Count('grade_id')) # Считаем по PK для надежности
 
-        grade_distribution_bar = {
-            '2': 0, '3': 0, '4': 0, '5': 0
-        }
-        for grade in grade_distribution:
-            if grade['grade'] in ['2', '3', '4', '5']:
-                grade_distribution_bar[grade['grade']] = grade['count']
+        grade_distribution_bar = {'2': 0, '3': 0, '4': 0, '5': 0}
+        for item in grade_distribution:
+            grade_distribution_bar[item['grade']] = item['count']
 
-        # Топ предметов по выбранному критерию (avg, max, count)
-        # Сначала определяем поле для сортировки
+        # 8. Расчет топа предметов (используем *общий* отфильтрованный queryset до фильтра по предмету)
+        # Переаннотируем числовые оценки для этого queryset
+        top_subjects_queryset = queryset.filter(numeric_grades_q).annotate(
+             grade_int=Case(
+                 When(grade='2', then=Value(2)),
+                 When(grade='3', then=Value(3)),
+                 When(grade='4', then=Value(4)),
+                 When(grade='5', then=Value(5)),
+                 output_field=IntegerField()
+             )
+        )
+
         sort_field_map = {
             'avg': 'avg_grade',
             'max': 'max_grade',
             'count': 'count'
         }
         sort_field = sort_field_map.get(sort_by, 'avg_grade')
+        sort_order = '-' + sort_field # Сортировка по убыванию
 
-        top_subjects = (
-            annotated_queryset
-            .filter(grade_int__isnull=False)  # Только предметы с оценками
-            .values('fc__hps__disciple__disciple_name')
+        top_subjects_agg = (
+            top_subjects_queryset
+            .values(subject_ref=F('fc__hps__disciple__disciple_name')) # Группируем по имени предмета
             .annotate(
                 avg_grade=Avg('grade_int'),
                 max_grade=Max('grade_int'),
-                count=Count('grade_int'),
-                # avg_attendance=Avg('student__attendance__percent_of_attendance')
-                avg_attendance=Avg(
-                    'student__attendance__percent_of_attendance',
-                    filter=Q(student__attendance__nagruzka__fc=F('fc'))
-                )
+                count=Count('grade_id'),
             )
-            .order_by('-' + sort_field)
-            .exclude(avg_grade__isnull=True)  # Исключаем предметы без оценок
-            [:limit]
+            .exclude(avg_grade__isnull=True)
+            .order_by(sort_order)
+            [:limit] 
         )
+        best_subjects_list = []
+        for subject_data in top_subjects_agg:
+             best_subjects_list.append({
+                 "subject": subject_data['subject_ref'],
+                 "avg": round(subject_data['avg_grade'], 2) if subject_data['avg_grade'] is not None else None,
+                 "max": subject_data['max_grade'],
+                 "count": subject_data['count'],
+                 "avgAttendance": None, 
+                 "avgActivity": None 
+             })
 
-        # Формирование ответа
         response_data = {
             "subjectStats": {
-                "minGrade": subject_stats['min_grade'],
-                "avgGrade": subject_stats['avg_grade'],
-                "maxGrade": subject_stats['max_grade']
+                "minGrade": subject_stats_agg['min_grade'],
+                "avgGrade": avg_grade_rounded,
+                "maxGrade": subject_stats_agg['max_grade']
             },
             "gradeDistributionBar": grade_distribution_bar,
-            "bestSubjects": []
+            "bestSubjects": best_subjects_list
         }
 
-        for subject in top_subjects:
-            response_data["bestSubjects"].append({
-                "subject": subject['fc__hps__disciple__disciple_name'],
-                "avg": subject['avg_grade'],
-                "max": subject['max_grade'],
-                "count": subject['count'],
-                "avgAttendance": subject.get('avg_attendance'),  # Может быть None
-                "avgActivity": None  # Заглушка, как просили
-            })
+        end_time = time.time() 
+        logger.info(f"/api/statistics/subject request took {end_time - start_time:.4f} seconds")
+        print(f"/api/statistics/subject request took {end_time - start_time:.4f} seconds") 
 
         return Response(response_data, status=status.HTTP_200_OK)
-    
-
 
 
 
 class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Student.objects.all().select_related('group')
+    permission_classes = [IsAuthenticated]
     
     def calculate_course(self, year_of_admission: int) -> int:
         now = datetime.now()
@@ -548,20 +662,17 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
             return None
 
     def list(self, request, *args, **kwargs):
-        # Параметры
         course = request.query_params.get('course')
         group = request.query_params.get('group')
         subject = request.query_params.get('subject')
-        sort_by = request.query_params.get('sortBy', 'calculated_rating')
-        limit = int(request.query_params.get('limit', 10) or 10)
+        sort_by = request.query_params.get('sortBy', 'rating')
+        limit = int(request.query_params.get('limit', 1000000) or 1000000)
 
         qs = self.get_queryset()
         
-        # Фильтрация по группе
         if group:
             qs = qs.filter(group__title=group)
             
-        # Фильтрация по курсу
         if course:
             try:
                 c = int(course)
@@ -574,13 +685,11 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
             except ValueError:
                 pass
                 
-        # Фильтрация по предмету
         if subject:
             qs = qs.filter(
                 grades__fc__hps__disciple__disciple_name__icontains=subject
             )
 
-        # Аннотация полей
         grade_case = Case(
             When(grades__grade='2', then=Value(2)),
             When(grades__grade='3', then=Value(3)),
@@ -593,33 +702,24 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         qs = qs.annotate(
             avg_grade=Avg(grade_case),
             attendance_percent=Avg('attendance__percent_of_attendance'),
-            avg_activity=F('practise')  # Используем поле practise как активность
+            avg_activity=F('practise')  
         ).annotate(
             calculated_rating=ExpressionWrapper(
                 (F('avg_grade') * 0.5 + F('avg_activity') * 0.3 + F('attendance_percent') * 0.2) * 20,
                 output_field=FloatField()
-            ),
-            dropoutRisk=ExpressionWrapper(
-                (1 - F('attendance_percent') / 100) * 0.4
-                + (1 - F('avg_activity') / 10) * 0.3
-                + (1 - F('avg_grade') / 5) * 0.3,
-                output_field=FloatField()
             )
         )
 
-        # Сопоставление sortBy → поля
         sort_field_map = {
             'rating': 'calculated_rating',
-            'performance': 'avg_grade',
-            'attendance': 'attendance_percent',
+            'avgGrade': 'avg_grade',
+            'attendancePercent': 'attendance_percent',
             'activity': 'avg_activity'
         }
         field = sort_field_map.get(sort_by, 'calculated_rating')
         
-        # Сортировка и ограничение
         qs = qs.order_by(f'-{field}')[:limit]
 
-        # Формируем ответ
         chartData = [{
             'name': s.name,
             'avgGrade': round(float(s.avg_grade or 0), 2),
@@ -639,11 +739,33 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
             'avgGrade': round(float(s.avg_grade or 0), 2),
             'activity': round(float(s.avg_activity or 0), 2),
             'attendancePercent': round(float(s.attendance_percent or 0), 2),
-            'dropoutRisk': round(float(s.dropoutRisk or 0), 2),
-            'rating': round(float(s.calculated_rating or 0), 2)  # Используем calculated_rating вместо rating
+            'dropoutRisk': 0.25,  # Заглушка - фиксированные 25% для всех
+            'rating': round(float(s.calculated_rating or 0), 2)
         } for s in qs]
 
         return Response({
             'chartData': chartData,
             'students': students
         }, status=status.HTTP_200_OK)
+
+    
+class GroupListViewSet(mixins.ListModelMixin, GenericViewSet):
+    """
+    Возвращает список всех групп для использования в фильтрах.
+    """
+    queryset = Group.objects.all().order_by('title')
+    serializer_class = GroupSerializer
+    pagination_class = None
+    
+    permission_classes = [IsAuthenticated]
+
+class DiscipleListViewSet(mixins.ListModelMixin, GenericViewSet):
+    """
+    Возвращает список всех дисциплин для использования в фильтрах.
+    """
+
+    queryset = Disciples.objects.exclude(disciple_name__isnull=True).exclude(disciple_name__exact='').order_by('disciple_name')
+    serializer_class = DisciplesSerializer
+    pagination_class = None
+    
+    permission_classes = [IsAuthenticated] 
