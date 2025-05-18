@@ -100,7 +100,15 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             course_param = None
 
         # Process grades and course projects
-        students_grades = defaultdict(list)
+        students_data_dict = defaultdict(lambda: {
+            "id": None,
+            "name": None,
+            "group": None,
+            "course": None,
+            "subjects": defaultdict(list)
+        })
+        
+        subjects_info = set()
         grade_stats = {
             'numeric_grades': [],
             'countGrade2': 0,
@@ -115,8 +123,9 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
         for grade in grades_queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
             student = grade.student
             group_obj = student.group
+            subject_obj = grade.fc.hps.disciple if grade.fc and grade.fc.hps and grade.fc.hps.disciple else None
             
-            if not grade.grade:
+            if not grade.grade or not subject_obj:
                 continue
                 
             if group_obj and group_obj.title:
@@ -128,36 +137,39 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                     if course_param and course != course_param:
                         continue
             
+            # Заполняем основную информацию о студенте
+            students_data_dict[student.student_id]["id"] = student.student_id
+            students_data_dict[student.student_id]["name"] = student.name
+            students_data_dict[student.student_id]["group"] = group_obj.title if group_obj else None
+            students_data_dict[student.student_id]["course"] = self.calculate_course(
+                self.extract_year_from_group_title(group_obj.title)
+            ) if group_obj and group_obj.title else None
+            
+            # Обрабатываем оценку
             grade_value = str(grade.grade).strip()
+            subject_name = subject_obj.disciple_name
+            subjects_info.add((subject_name, subject_obj.disciple_id))
             
             if grade_value.isdigit():
                 grade_int = int(grade_value)
                 if 2 <= grade_int <= 5:
-                    students_grades[student.student_id].append({
-                        "grade": grade_int,
-                        "type": "grade"
-                    })
+                    students_data_dict[student.student_id]["subjects"][subject_name].append(grade_int)
                     grade_stats['numeric_grades'].append(grade_int)
                     grade_stats[f'countGrade{grade_int}'] += 1
             elif grade_value.lower() == 'зачет':
-                students_grades[student.student_id].append({
-                    "grade": grade_value,
-                    "type": "zachet"
-                })
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_value)
                 grade_stats['countZachet'] += 1
             elif grade_value.lower() == 'неявка':
-                students_grades[student.student_id].append({
-                    "grade": grade_value,
-                    "type": "nejavka"
-                })
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_value)
                 grade_stats['countNejavka'] += 1
 
         # Process course projects
         for course_project in course_projects_queryset:
             student = course_project.student
             group_obj = student.group
+            subject_obj = course_project.hps.disciple if course_project.hps and course_project.hps.disciple else None
             
-            if not course_project.grade:
+            if not course_project.grade or not subject_obj:
                 continue
                 
             if group_obj and group_obj.title:
@@ -169,43 +181,45 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
                     if course_param and course != course_param:
                         continue
             
+            # Заполняем основную информацию о студенте
+            students_data_dict[student.student_id]["id"] = student.student_id
+            students_data_dict[student.student_id]["name"] = student.name
+            students_data_dict[student.student_id]["group"] = group_obj.title if group_obj else None
+            students_data_dict[student.student_id]["course"] = self.calculate_course(
+                self.extract_year_from_group_title(group_obj.title)
+            ) if group_obj and group_obj.title else None
+            
+            # Обрабатываем оценку
             grade_int = course_project.grade
+            subject_name = subject_obj.disciple_name
+            subjects_info.add((subject_name, subject_obj.disciple_id))
+            
             if 2 <= grade_int <= 5:
-                students_grades[student.student_id].append({
-                    "grade": grade_int,
-                    "type": "grade",
-                    "is_course_project": True
-                })
+                students_data_dict[student.student_id]["subjects"][subject_name].append(grade_int)
                 grade_stats['numeric_grades'].append(grade_int)
                 grade_stats[f'countGrade{grade_int}'] += 1
 
-        # Prepare students data
+        # Prepare final students data
         students_data = []
-        processed_student_ids = set()
-        
-        # Combine data from both querysets
-        for grade in chain(
-            grades_queryset.select_related('student', 'student__group'),
-            course_projects_queryset.select_related('student', 'student__group')
-        ):
-            student = grade.student
-            if student.student_id in processed_student_ids:
+        for student_id, student_data in students_data_dict.items():
+            if not student_data["id"]:
                 continue
                 
-            if student.student_id not in students_grades:
-                continue
-                
-            group_obj = student.group
+            subjects_list = [
+                {
+                    "subject": subject_name,
+                    "grades": grades
+                }
+                for subject_name, grades in student_data["subjects"].items()
+            ]
             
             students_data.append({
-                "id": student.student_id,
-                "name": student.name,
-                "group": group_obj.title if group_obj else None,
-                "course": self.calculate_course(self.extract_year_from_group_title(group_obj.title)) 
-                           if group_obj and group_obj.title else None,
-                "grades": [g["grade"] for g in students_grades[student.student_id]]
+                "id": student_data["id"],
+                "name": student_data["name"],
+                "group": student_data["group"],
+                "course": student_data["course"],
+                "subjects": subjects_list
             })
-            processed_student_ids.add(student.student_id)
 
         # Calculate statistics
         numeric_grades = grade_stats['numeric_grades']
@@ -224,11 +238,225 @@ class GradesViewset(mixins.ListModelMixin, GenericViewSet):
             "maxGrade": max(numeric_grades) if numeric_grades else None
         }
 
-        return Response({
+        response_data = {
             "summary": stats,
-            "students": students_data
-        })
+            "students": students_data,
+            "subjects": [{"id": sub_id, "name": sub_name} for sub_name, sub_id in subjects_info]
+        }
 
+        return Response(response_data)
+
+# class GradesViewset(mixins.ListModelMixin, GenericViewSet):
+#     queryset = Grades.objects.select_related('student', 'student__group', 'fc')
+#     serializer_class = GradesSerializer
+
+#     def calculate_course(self, year_of_admission: int) -> int:
+#         now = datetime.now()
+#         current_year = now.year
+#         current_month = now.month
+#         if current_month < 9:
+#             return current_year - year_of_admission
+#         else:
+#             return current_year - year_of_admission + 1
+
+#     def extract_year_from_group_title(self, title: str) -> int | None:
+#         try:
+#             parts = title.split('-')
+#             year_suffix = int(parts[1])
+#             current_year = datetime.now().year % 100
+#             century = 2000 if year_suffix <= current_year else 1900
+#             return century + year_suffix
+#         except (IndexError, ValueError):
+#             return None
+
+#     def student_is_still_enrolled(self, year_of_admission: int) -> bool:
+#         now = datetime.now()
+#         expected_graduation_year = year_of_admission + 4
+#         return now.year < expected_graduation_year or (now.year == expected_graduation_year and now.month < 7)
+
+#     def list(self, request, *args, **kwargs):
+#         # Get regular grades queryset
+#         grades_queryset = self.get_queryset()
+        
+#         # Get course projects queryset
+#         course_projects_queryset = CourseProjects.objects.select_related(
+#             'student', 'student__group', 'hps', 'hps__disciple'
+#         )
+
+#         course_param = request.query_params.get('course')
+#         semester = request.query_params.get('semester')
+#         group = request.query_params.get('group')
+#         subject = request.query_params.get('subject')
+
+#         # Validate course-semester pair
+#         if course_param and semester:
+#             try:
+#                 course_int = int(course_param)
+#                 semester_int = int(semester)
+#                 if semester_int not in [(course_int - 1) * 2 + 1, (course_int - 1) * 2 + 2]:
+#                     return Response({
+#                         "summary": {
+#                             "totalStudents": 0,
+#                             "averageGrade": None,
+#                             "countGrade2": 0,
+#                             "countGrade3": 0,
+#                             "countGrade4": 0,
+#                             "countGrade5": 0,
+#                             "countZachet": 0,
+#                             "countNejavka": 0,
+#                             "minGrade": None,
+#                             "maxGrade": None
+#                         },
+#                         "students": []
+#                     })
+#             except ValueError:
+#                 pass
+
+#         # Apply filters to both querysets
+#         if semester:
+#             grades_queryset = grades_queryset.filter(fc__hps__semester=semester)
+#             course_projects_queryset = course_projects_queryset.filter(hps__semester=semester)
+#         if group:
+#             grades_queryset = grades_queryset.filter(student__group__title=group)
+#             course_projects_queryset = course_projects_queryset.filter(student__group__title=group)
+#         if subject:
+#             grades_queryset = grades_queryset.filter(fc__hps__disciple__disciple_name=subject)
+#             course_projects_queryset = course_projects_queryset.filter(hps__disciple__disciple_name=subject)
+
+#         try:
+#             course_param = int(course_param) if course_param else None
+#         except ValueError:
+#             course_param = None
+
+#         # Process grades and course projects
+#         students_grades = defaultdict(list)
+#         grade_stats = {
+#             'numeric_grades': [],
+#             'countGrade2': 0,
+#             'countGrade3': 0,
+#             'countGrade4': 0,
+#             'countGrade5': 0,
+#             'countZachet': 0,
+#             'countNejavka': 0
+#         }
+
+#         # Process regular grades
+#         for grade in grades_queryset.select_related('student', 'student__group', 'fc__hps__disciple'):
+#             student = grade.student
+#             group_obj = student.group
+            
+#             if not grade.grade:
+#                 continue
+                
+#             if group_obj and group_obj.title:
+#                 year_of_admission = self.extract_year_from_group_title(group_obj.title)
+#                 if year_of_admission:
+#                     if not self.student_is_still_enrolled(year_of_admission):
+#                         continue
+#                     course = self.calculate_course(year_of_admission)
+#                     if course_param and course != course_param:
+#                         continue
+            
+#             grade_value = str(grade.grade).strip()
+            
+#             if grade_value.isdigit():
+#                 grade_int = int(grade_value)
+#                 if 2 <= grade_int <= 5:
+#                     students_grades[student.student_id].append({
+#                         "grade": grade_int,
+#                         "type": "grade"
+#                     })
+#                     grade_stats['numeric_grades'].append(grade_int)
+#                     grade_stats[f'countGrade{grade_int}'] += 1
+#             elif grade_value.lower() == 'зачет':
+#                 students_grades[student.student_id].append({
+#                     "grade": grade_value,
+#                     "type": "zachet"
+#                 })
+#                 grade_stats['countZachet'] += 1
+#             elif grade_value.lower() == 'неявка':
+#                 students_grades[student.student_id].append({
+#                     "grade": grade_value,
+#                     "type": "nejavka"
+#                 })
+#                 grade_stats['countNejavka'] += 1
+
+#         # Process course projects
+#         for course_project in course_projects_queryset:
+#             student = course_project.student
+#             group_obj = student.group
+            
+#             if not course_project.grade:
+#                 continue
+                
+#             if group_obj and group_obj.title:
+#                 year_of_admission = self.extract_year_from_group_title(group_obj.title)
+#                 if year_of_admission:
+#                     if not self.student_is_still_enrolled(year_of_admission):
+#                         continue
+#                     course = self.calculate_course(year_of_admission)
+#                     if course_param and course != course_param:
+#                         continue
+            
+#             grade_int = course_project.grade
+#             if 2 <= grade_int <= 5:
+#                 students_grades[student.student_id].append({
+#                     "grade": grade_int,
+#                     "type": "grade",
+#                     "is_course_project": True
+#                 })
+#                 grade_stats['numeric_grades'].append(grade_int)
+#                 grade_stats[f'countGrade{grade_int}'] += 1
+
+#         # Prepare students data
+#         students_data = []
+#         processed_student_ids = set()
+        
+#         # Combine data from both querysets
+#         for grade in chain(
+#             grades_queryset.select_related('student', 'student__group'),
+#             course_projects_queryset.select_related('student', 'student__group')
+#         ):
+#             student = grade.student
+#             if student.student_id in processed_student_ids:
+#                 continue
+                
+#             if student.student_id not in students_grades:
+#                 continue
+                
+#             group_obj = student.group
+            
+#             students_data.append({
+#                 "id": student.student_id,
+#                 "name": student.name,
+#                 "group": group_obj.title if group_obj else None,
+#                 "course": self.calculate_course(self.extract_year_from_group_title(group_obj.title)) 
+#                            if group_obj and group_obj.title else None,
+#                 "grades": [g["grade"] for g in students_grades[student.student_id]]
+#             })
+#             processed_student_ids.add(student.student_id)
+
+#         # Calculate statistics
+#         numeric_grades = grade_stats['numeric_grades']
+#         total_students = len(students_data)
+        
+#         stats = {
+#             "totalStudents": total_students,
+#             "averageGrade": round(sum(numeric_grades) / len(numeric_grades), 2) if numeric_grades else None,
+#             "countGrade2": grade_stats['countGrade2'],
+#             "countGrade3": grade_stats['countGrade3'],
+#             "countGrade4": grade_stats['countGrade4'],
+#             "countGrade5": grade_stats['countGrade5'],
+#             "countZachet": grade_stats['countZachet'],
+#             "countNejavka": grade_stats['countNejavka'],
+#             "minGrade": min(numeric_grades) if numeric_grades else None,
+#             "maxGrade": max(numeric_grades) if numeric_grades else None
+#         }
+
+#         return Response({
+#             "summary": stats,
+#             "students": students_data
+#         })
 
 class AcademicPerformanceViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
@@ -638,12 +866,6 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
             calculated_rating=ExpressionWrapper(
                 (F('avg_grade') * 0.5 + F('avg_activity') * 0.3 + F('attendance_percent') * 0.2) * 20,
                 output_field=FloatField()
-            ),
-            dropoutRisk=ExpressionWrapper(
-            (1 - F('attendance_percent') / 100) * 0.4
-            + (1 - F('avg_activity') / 10) * 0.3
-            + (1 - F('avg_grade') / 5) * 0.3,
-            output_field=FloatField()
             )
         )
 
@@ -679,8 +901,8 @@ class StudentRatingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
             'avgGrade': round(float(s.avg_grade or 0), 2),
             'activity': round(float(s.avg_activity or 0), 2),
             'attendancePercent': round(float(s.attendance_percent or 0), 2),
-            'dropoutRisk': round(float(s.dropoutRisk or 0), 2),
-            'rating': round(float(s.calculated_rating or 0), 2)  # Используем calculated_rating вместо rating
+            'dropoutRisk': 0.25,  # Заглушка - фиксированные 25% для всех
+            'rating': round(float(s.calculated_rating or 0), 2)
         } for s in qs]
 
         return Response({
